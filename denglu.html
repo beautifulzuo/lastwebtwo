@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#out{
+				margin: 50px auto;
+				width: 500px;
+			}
+			.clear:after{
+				content: '';
+				display: block;
+				height: 0;
+				clear: both;
+			}
+			.none{
+				display: none;
+			}
+			#out input{
+				height: 50px;
+				width: 200px;
+				padding-left: 10px;
+			}
+			#left p{
+				font-size: 10px;
+				color: gray;
+				height: 20px;
+			}
+			button{
+				background-color: red;
+				width: 80px;
+				height: 50px;
+				border: 0px;
+				color: white;
+			}
+			#click{
+				float: right;
+			}
+			#zhuce{
+				width: 210px;
+			}
+			#back{
+				color: gray;
+				text-decoration: none;
+				padding-left: 150px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="out" class="clear">
+			<a href="#" id="back">返回首页</a>
+			<div id="left">
+				<input  id="userName" type="text" placeholder="用户名">
+				<p id="user"></p>
+				<input id="setcode" type="password" placeholder="输入密码">
+				<p id="code"></p>
+				<div id="zhuce">
+					<button id="denglu">登陆</button>
+					<button id="click">注册</button>
+				</div>
+			</div>
+		</div>
+		<script>
+			var userName=document.getElementById("userName"),
+				user=document.getElementById("user"),
+				setcode=document.getElementById("setcode"),
+				code=document.getElementById("code"),
+				click=document.getElementById("click"),
+				back=document.getElementById("back");
+			back.onclick=function(){
+				location.href="index.html";
+			}
+			userName.onfocus=function(){
+				user.innerHTML="支持中文数字";
+			}
+			userName.onblur=function(){
+				this.placeholder="";
+				if(!this.value){
+					user.innerHTML="用户名不能为空";
+				}else{
+					user.innerHTML="";
+				}
+			}
+			setcode.onfocus=function(){
+				code.innerHTML="建议至少使用两种字符组合";
+			}
+			setcode.onblur=function(){
+				if(!this.value){
+					code.innerHTML="密码不能为空";
+				}else{
+					code.innerHTML="";
+				}
+			}
+		</script>
+	</body>
+</html>
